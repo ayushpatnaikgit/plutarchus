@@ -1,4 +1,8 @@
 from insert import *
+import json
+# reading csv file 
+with open('saner.json') as json_file:  
+    data = json.load(json_file)
 def get_pages():
     fo = open("template/index.html", "r+")
     content = [x.strip() for x in fo] 
@@ -8,14 +12,14 @@ def get_pages():
 
 def activator(file):
     label = '<!-- Make a generator for above list -->'
-    fo = open("template/"+file+".html", "r+")
+    fo = open("template/"+data["settings"]["Pages"][file]+".html", "r+")
 
     elements = []
     pages = get_pages()
     for x in pages: 
         if file in x: 
-            elements.append('<li class="active"><a href="'+file+'.html"><span>' +file+ '<span class="border"></span></span></a></li>')
+            elements.append('<li class="active"><a href="'+data["settings"]["Pages"][file]+'.html"><span>' +file+ '<span class="border"></span></span></a></li>')
             continue
         elements.append(x)
     fo.close()
-    insert_elements("template/"+file +'.html',elements,label)
+    insert_elements("template/"+data["settings"]["Pages"][file] +'.html',elements,label)
