@@ -35,18 +35,21 @@
 } ,
 {
     "PageTag":"Research",
+    "Date":"November 2017",
     "section":" Financial Regulation, Consumer protection",
     "Entry":"Regulating consumer finance: Do disclosures matter? The case of life insurance (with Monika Halan), NIPFP Working paper 212, November 2017. <a href='http://macrofinance.nipfp.org.in/releases/HalanSane2017_RCF.html'>[link]</a>" 
 },
 
 {
     "PageTag":"Research",
+    "Date": "August 2017",
     "section":" Financial Regulation, Consumer protection",
     "Entry":"Misled and Mis-sold: Financial Misbehaviour in Retail Banks? (with Monika Halan), <i>Journal of Comparative Economics</i>, 45(3), August 2017 <a href='https://doi.org/10.1016/j.jce.2017.06.001'>[link]</a>" 
 } 
 ,
 {
     "PageTag":"Pensions",
+    "Date":"January 2018",
     "section":" Financial Regulation, Consumer protection",
     "Entry":"Simulating Pension Income Scenarios with penCalc (with William Price), World Bank Policy Research Working Paper, January 2018. <a href='http://macrofinance.nipfp.org.in/releases/SanePrice_SPIS.html'>[link]</a>" 
 } 
@@ -54,22 +57,26 @@
 
 {
     "PageTag":"Policy",
+    "Date":"2015",
     "section":" Policy engagement",
     "Entry":"Part of the research team (focused on the insolvency of individuals) for the <a href='http://ifrogs.org/POLICY/blrc.html'><b>Bankruptcy Legislative Reforms Committee (BLRC)</b></a>, set up by the Ministry of  Finance (2015)" 
 },
 {
     "PageTag":"Media",
+    "Date":"05 May 2017",
     "subsection":" 2017",
     "Entry":"a href='https://ajayshahblog.blogspot.in/2017/05/grievance-redress-and-enforcement.html'>Grievance redress and enforcement problems in the Aadhaar legal framework</a> (with Vrinda Bhandari), Ajay Shah's blog, 05 May, 2017." 
 },
 {
     "PageTag":"Media",
+    "Date":"11 April 2017",
     "subsection":" 2017",
     "Entry":"a href='http://www.livemint.com/Opinion/DR8kPY8VKUDyMlkR2OHUfM/Budgeting-for-the-police.html'>Budgeting for the police</a> (with Neha Sinha), Mint, 11 April, 2017." 
 } ,
 
 {
     "PageTag":"Media",
+    "Date":"13 December 2016",
     "subsection":" 2016",
     "Entry":"<a href='http://www.livemint.com/Opinion/zxXvWsP1BzXdudc7xyApzM/Revamping-the-Income-Tax-Appellate-Tribunal.html'>Revamping the Income Tax Appellate Tribunal</a> (with Pratik Datta and Surya Prakash B S), liveMint, 13 December, 2016." 
 }, 
@@ -80,6 +87,7 @@
 }, 
 {
     "PageTag":"CrimJust",
+    "Date":"10 May 2015",
     "section":"The Indian criminal justice system",
     "subsection":"Broad Work",
     "Entry":"a href='http://ajayshahblog.blogspot.in/2012/05/faulty-tradeoffs-in-security.html'>Faulty tradeoffs in security</a>, by Ajay Shah, Ajay Shah's blog, 10 May 2015." 
