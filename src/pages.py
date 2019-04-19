@@ -1,6 +1,4 @@
-import json
-with open('saner.json') as json_file:  
-    data = json.load(json_file) 
+import datetime
 
 def pageDict(page,data):
     data2 = []
@@ -18,52 +16,29 @@ def subsection(H2):
 def entry(ENTRY):
     return "<p>" + ENTRY + "</p>" 
 
-def ordering(page,data):
+def ordering(page,data): #This is the most important part of the code. Iterating through sections and subsecitons to add entries in proper order in HTML format
     pagedictionary = pageDict(page,data)
-    sections = []
+    #print(pagedictionary)
+    html_page = []
+    section_list = []
     for x in pagedictionary: 
-        if "section" in list(x.keys()):
-            sections.append(x["section"])
-    sections = list(set(sections))
-    subsections = {}
-    if len(sections) != 0:
-        for y in sections:
-            subsections[y] = []
-        for x in pagedictionary:
-            if "section" and "subsection" in list(x.keys()):
-                subsections[x["section"]].append(x["subsection"])
-        subsections_list  = []
-        for x in pagedictionary: 
-            if "subsection" in list(x.keys()):
-                subsections_list.append(x["subsection"])
+        subsection_list = []
+        if x["section"] not in section_list: 
+            section_list.append(x["section"])
+            html_page.append(section(x["section"]))
+            for y in pagedictionary:
+                if y["section"] == x["section"]:
+                    if y["subsection"] not in subsection_list:
+                        subsection_list.append(y["subsection"])
+                        html_page.append(subsection(y["subsection"]))
+                        entries = []
+                        for z in pagedictionary: 
+                            if z["section"] == x["section"] and z["subsection"] == y["subsection"]:
+                                entries.append(entry(z["Entry"])) 
+                        try: #try sorting if dates are there
+                            entries = sorted(entries, key = lambda i:  datetime.datetime.strptime(i['Date'], '%d/%m/%Y'))[::-1]
+                        except: 
+                            pass
+                        html_page = html_page + list(map(entry,entries))
 
-        if subsections_list != 0:
-            html_page = subsections
-        else: 
-            home_page = {}
-            for y in sections:
-                home_page[y] = []
-    
-            for x in pagedictionary:
-                if "section" in pagedictionary:
-                    home_page[x["section"]].append(x["Entry"])
-    
-    else: 
-        subsections_list  = []
-        for x in pagedictionary: 
-            if "subsection" in list(x.keys()):
-                subsections_list.append(x["subsection"])
-            subsections_list = list(set(subsections_list))
-        if len(subsections_list) != 0:
-            for y in subsections_list:
-                subsections[y] = []
-            for x in pagedictionary: 
-                if "subsection" in list(x.keys()):
-                    subsections[x["subsection"]].append(x["Entry"])
-            html_page = subsections
-        else:
-            html_page["Entries"] = []
-            for x in pagedictionary:
-                html_page["Entries"].append(x["Entries"])
     return html_page
-             

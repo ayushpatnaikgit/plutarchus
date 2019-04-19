@@ -7849,16 +7849,17 @@ pre {
 }
 
 #fh5co-footer {
-  padding: 5em 0;
+  padding: 15em 0;
   background: #fafafa;
   background: #fff;
-  line-height: 1.5;
+  line-height: 4.4;
+  margin: 10;
 }
 
 .fh5co-list-check {
   position: relative;
-  padding: 0;
-  margin: 0;
+  padding: 14;
+  margin: 10;
   clear: both;
 }
 .fh5co-list-check li {

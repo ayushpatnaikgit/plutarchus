@@ -10,7 +10,6 @@ def insert_elements(file,elements,label):
     with open(file, 'w+') as fp:
         fp.writelines(final)
 
-
 def insert_file(file1,file2,label): 
     fo = open(file2, "r")
     content = [x.strip() for x in fo] #no need to strip back slash from the end
