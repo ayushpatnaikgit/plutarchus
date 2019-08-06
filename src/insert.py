@@ -1,4 +1,7 @@
-def insert_elements(file,elements,label):
+#####
+#The functions here are used to insert a list of elements in a file after a label. 
+#####
+def insert_elements(file,elements,label): #inserts elements in a file after a label
     fo = open(file, "r+")
     content = [x.strip() for x in fo] 
     new_content = content[0:content.index(label)+1]
@@ -10,7 +13,7 @@ def insert_elements(file,elements,label):
     with open(file, 'w+') as fp:
         fp.writelines(final)
 
-def insert_file(file1,file2,label): 
+def insert_file(file1,file2,label): #inserts elements of a file in a file after a label. 
     fo = open(file2, "r")
     content = [x.strip() for x in fo] #no need to strip back slash from the end
     final = []

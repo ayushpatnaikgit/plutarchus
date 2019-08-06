@@ -3,8 +3,9 @@ from insert import *
 from activate import *
 from pages import *
 import json
+import sys
 # reading csv file 
-with open('saner.json') as json_file:  
+with open(sys.argv[1]) as json_file:  
     data = json.load(json_file)
 #creating files using headinds
 names = list(data["settings"]["Pages"].keys())
@@ -41,7 +42,9 @@ insert_elements("template/index.html",Author_email,'<!--Email -->')
 Author_image = ['<img src='+'"'+data["settings"]["Image"] +'"'+', width=270, hspace=50>']
 insert_elements("template/index.html",Author_image,'<!--Image -->')
 
-#
+## Footer
+
+if data["settings"][""]
 
 for x in names:
     activator(x) #REACTIVE TITLE BAR 

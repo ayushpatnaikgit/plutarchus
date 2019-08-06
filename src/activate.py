@@ -1,8 +1,8 @@
 from insert import *
 import json
 # reading csv file 
-with open('saner.json') as json_file:  
-    data = json.load(json_file)
+# with open('saner.json') as json_file:  
+#     data = json.load(json_file)
 def get_pages():
     fo = open("template/index.html", "r+")
     content = [x.strip() for x in fo] 
@@ -10,7 +10,7 @@ def get_pages():
     fo.close()
     return content[:-1]
 
-def activator(file):
+def activator(file,data):
     label = '<!-- Make a generator for above list -->'
     fo = open("template/"+data["settings"]["Pages"][file]+".html", "r+")
 

@@ -1,5 +1,6 @@
 {"settings": {
     "Theme":"Theme1",
+    "Support us":"YES",
     "Name":"Renuka Sane",
     "Image":"http://saner.org.in/renuka1.jpg",
     "Sort":"Descending Dates",
@@ -104,6 +105,13 @@
     "section":"The Indian criminal justice system",
     "subsection":"Broad Work",
     "Entry":"<a href='http://ajayshahblog.blogspot.in/2012/05/faulty-tradeoffs-in-security.html'>Faulty tradeoffs in security</a>, by Ajay Shah, Ajay Shah's blog, 10 May 2015." 
+},
+{
+    "PageTag":"Research",
+    "Date":"December 2017",
+    "section":" Financial Regulation, Consumer protection",
+    "subsection":"",
+    "Entry":"i love you" 
 }
 
 ]
