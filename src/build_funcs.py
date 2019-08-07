@@ -13,7 +13,7 @@ import sys
 
 
 def build_website(data_file):
-    os.system("cp -r assets/themes/Theme1 template")
+    os.system("cp -r assets/themes/"+ data_file["settings"]["Theme"] + " template")
     data = data_file
 
     names = list(data["settings"]["Pages"].keys())
@@ -23,10 +23,9 @@ def build_website(data_file):
         os.system("cp template/left-sidebar.html template/" +data["settings"]["Pages"][x] +'.html')
         elements.append('<li><a href="' + data["settings"]["Pages"][x] + '.html"><span>' + x +  '<span class="border"></span></span></a></li>')
         Title = ['<h1 class="intro-lead">'+x+'</h1>']
-        insert_elements("template/"+data["settings"]["Pages"][x]+".html",Title,'<!-- Make Title Generator -->')
+        insert_elements("template/"+data["settings"]["Pages"][x]+".html",Title,'<!--Title -->')
 
-    #os.system("cp template/index2.html template/index.html")
-    insert_elements("template/index.html",elements,'<!-- Make a generator for above list -->')
+    insert_elements("template/index.html",elements,'<!-- Page list start-->')
     Author_name = ['<a class="navbar-brand" href="index.html">'+data["settings"]["Name"]+'</a>']
     insert_elements("template/index.html",Author_name,'<!--Name of Author -->')
     Title_and_Authtor = ['<title>'+data["settings"]["Name"]+'&mdash; Resume</title>']
@@ -50,7 +49,8 @@ def build_website(data_file):
 
     ## Footer
 
-    #if data["settings"][""]
+    if data["settings"]["Support us"] == "YES":
+      insert_elements("template/index.html",["<p> An Open Source Resume Builder - https://github.com/ayushpatnaikgit/resume-builder </p>"],'<!--Footer -->')
 
     for x in names:
         activator(x,data_file) #REACTIVE TITLE BAR 

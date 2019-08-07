@@ -6,12 +6,12 @@ import json
 def get_pages():
     fo = open("template/index.html", "r+")
     content = [x.strip() for x in fo] 
-    content = content[content.index('<!-- Make a generator for above list -->')+1:content.index('<!-- End of generator -->')]
+    content = content[content.index('<!-- Page list start-->')+1:content.index('<!-- Page list end-->')]
     fo.close()
     return content[:-1]
 
 def activator(file,data):
-    label = '<!-- Make a generator for above list -->'
+    label = '<!-- Page list start-->'
     fo = open("template/"+data["settings"]["Pages"][file]+".html", "r+")
 
     elements = []
