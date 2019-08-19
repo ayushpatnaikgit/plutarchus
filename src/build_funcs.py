@@ -1,65 +1,53 @@
-###
-#Goals better tags. Make code modular using the main file. 
-###
 import os
 from insert import *
 from activate import *
 from pages import *
 import json
 import sys
-# reading csv file 
-# with open(sys.argv[1]) as json_file:  
-#     data_file= json.load(json_file)
-
 
 def build_website(data_file):
-    os.system("cp -r assets/themes/"+ data_file["settings"]["Theme"] + " template")
+    os.system("cp -r assets/themes/"+ data_file["settings"]["Theme"]+" template")
     data = data_file
-
     names = list(data["settings"]["Pages"].keys())
+    home = "template/index.html"
 #generating the navigation bar and creating the files
     elements = []
+    copy_between(home,'<!-- Page list start-->','<!-- Page list end-->',len(names)-1) 
     for x in names:
-        os.system("cp template/left-sidebar.html template/" +data["settings"]["Pages"][x] +'.html')
-        elements.append('<li><a href="' + data["settings"]["Pages"][x] + '.html"><span>' + x +  '<span class="border"></span></span></a></li>')
-        Title = ['<h1 class="intro-lead">'+x+'</h1>']
-        insert_elements("template/"+data["settings"]["Pages"][x]+".html",Title,'<!--Title -->')
+        page_link = "template/"+data["settings"]["Pages"][x]+".html"
+        page_name = data["settings"]["Pages"][x]+".html"
+        os.system("cp template/left-sidebar.html "+page_link)
+        insert_replace(home,page_name,'"sameplepage.html"')
+        insert_replace(home,x,'"samplepage"')
+        print(x)
+        insert_replace(page_link,x,'"sampletitle"')
+        insert_replace(page_link,data["settings"]["Name"],'"nameofauthor"')
+        insert_elements(page_link,ordering(data["settings"]["Pages"][x],data),'<!-- Content Generator -->')
 
-    insert_elements("template/index.html",elements,'<!-- Page list start-->')
-    Author_name = ['<a class="navbar-brand" href="index.html">'+data["settings"]["Name"]+'</a>']
-    insert_elements("template/index.html",Author_name,'<!--Name of Author -->')
-    Title_and_Authtor = ['<title>'+data["settings"]["Name"]+'&mdash; Resume</title>']
+    insert_elements(home,elements,'<!-- Page list start-->')
+    insert_replace(home,data["settings"]["Name"],'"nameofauthor"')
+
     Author_details = ordering("Home",data)
     Author_details_new = []
     for x in Author_details:
-        x = x.replace("<h2>","<b>")
-        x = x.replace("</h2>","</b>")
-        #replace h1 with h2 and replace h2 with b
-        x = x.replace("<h1>","<h2>")
-        x = x.replace("</h1>","</h2>")
+        x = x.replace("h2","b")
+        x = x.replace("h1","h2")
         Author_details_new.append(x)
-    # print(Author_details_new)
 
-    insert_elements("template/index.html",Author_details_new,'<!--About me -->')
-    Author_email = ['<p><a href="mailto:'+data["settings"]["Email"]+'"'+'class="btn btn-primary">Email</a></p>']
-    insert_elements("template/index.html",Author_email,'<!--Email -->')
+    insert_elements(home,Author_details_new,'<!--About me -->')
+    insert_replace(home,data["settings"]["Email"],'"example@gmail.com"')
 
-    Author_image = ['<img src='+'"'+data["settings"]["Image"] +'"'+', width=270, hspace=50>']
-    insert_elements("template/index.html",Author_image,'<!--Image -->')
-
+    Author_image='"'+data["settings"]["Image"] +'"'
+    insert_replace(home,Author_image,'"fakelink"')
     ## Footer
 
-    if data["settings"]["Support us"] == "YES":
-      insert_elements("template/index.html",["<p> An Open Source Resume Builder - https://github.com/ayushpatnaikgit/resume-builder </p>"],'<!--Footer -->')
+    #if data["settings"][""]
 
     for x in names:
         activator(x,data_file) #REACTIVE TITLE BAR 
 
-        #ADDING CONTENT IN PAGES
-        insert_elements("template/"+data["settings"]["Pages"][x]+'.html',ordering(data["settings"]["Pages"][x],data),'<!-- Content Generator -->')
-
-    os.system('mv template website')
-
+    os.system("zip -r resume.zip template")
+    os.system("rm -rf template")
 
 
 

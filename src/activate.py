@@ -1,25 +1,19 @@
 from insert import *
-import json
-# reading csv file 
-# with open('saner.json') as json_file:  
-#     data = json.load(json_file)
-def get_pages():
-    fo = open("template/index.html", "r+")
+
+def get_pages(file):
+    fo = open(file, "r+")
     content = [x.strip() for x in fo] 
     content = content[content.index('<!-- Page list start-->')+1:content.index('<!-- Page list end-->')]
     fo.close()
-    return content[:-1]
+    print(content)
+    return content[:-1] #returns the list of pages 
 
-def activator(file,data):
+
+def activator(file, data):
     label = '<!-- Page list start-->'
-    fo = open("template/"+data["settings"]["Pages"][file]+".html", "r+")
-
-    elements = []
-    pages = get_pages()
-    for x in pages: 
+    for x in get_pages("template/index.html"):
         if file in x: 
-            elements.append('<li class="active"><a href="'+data["settings"]["Pages"][file]+'.html"><span>' +file+ '<span class="border"></span></span></a></li>')
+            insert_elements("template/"+data["settings"]["Pages"][file] +'.html',[x],label)
+            insert_replace("template/"+data["settings"]["Pages"][file] +'.html',"active",'"notactive"')
             continue
-        elements.append(x)
-    fo.close()
-    insert_elements("template/"+data["settings"]["Pages"][file] +'.html',elements,label)
+        insert_elements("template/"+data["settings"]["Pages"][file] +'.html',[x],label)
