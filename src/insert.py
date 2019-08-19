@@ -13,7 +13,7 @@ def insert_elements(file,elements,label): #inserts elements in a file after a la
     with open(file, 'w+') as fp:
         fp.writelines(final)
 
-def insert_file(file1,file2,label): #inserts elements of a file in a file after a label. 
+def insert_file(file1,file2,label): #inserts elements of a file2 in file1 after a label. 
     fo = open(file2, "r")
     content = [x.strip() for x in fo] 
     final = []

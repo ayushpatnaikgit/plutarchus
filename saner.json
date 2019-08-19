@@ -5,12 +5,12 @@
     "Image":"http://saner.org.in/renuka1.jpg",
     "Sort":"Descending Dates",
     "Email":"renukas@gmail.com",
-    "Pages":{
-        "Research":"Research",
-        "Pensions":"Pensions",
-        "Media":"Media",
-        "Criminal Justice":"CrimJust"
-    }
+    "Pages":[
+        {"Research":"Research"},
+        {"Pensions":"Pensions"},
+        {"Media":"Media"},
+        {"Criminal Justice":"CrimJust"}
+    ]
 },
 "Entries":[
     {   
@@ -30,15 +30,8 @@
     "PageTag":"Home",
     "section":"About Me",
     "subsection":"Curriculum vitae",
-    "Entry":"<a href ='http://saner.org.in/renuka-res11.pdf>' PDF </a>" 
-} 
-,
-{
-    "PageTag":"Home",
-    "section":"About Me",
-    "subsection":"Email",
-    "Entry":"<a href ='mailto:renukas@gmail.com' renukas at gmail dot com </a>" 
-} ,
+    "Entry":"<a href ='http://saner.org.in/renuka-res11.pdf'> PDF </a>" 
+},
 {
     "PageTag":"Research",
     "Date":"November 2017",

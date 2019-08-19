@@ -7,11 +7,11 @@ def pageDict(page,data):
             data2.append(x)
     return data2
 
-def section(H1):
-    return "<h1>" + H1+ "</h1>"
-
-def subsection(H2):
+def section(H2):
     return "<h2>" + H2+ "</h2>"
+
+def subsection(B):
+    return "<b>" + B+ "</b>"
 
 def entry(ENTRY):
     return "<p>" + ENTRY + "</p>" 
