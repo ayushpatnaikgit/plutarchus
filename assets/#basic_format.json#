@@ -1,0 +1,42 @@
+{"settings": {
+    "Theme":"Theme2",
+    "Support us":"YES",
+    "Name":"Renuka Sane",
+    "Image":"http://saner.org.in/renuka1.jpg",
+    "Sort":"Descending Dates",
+    "Email":"renukas@gmail.com",
+    "Pages":[
+        {"Research":"Research"},
+        {"Pensions":"Pensions"},
+        {"Media":"Media"},
+        {"Criminal Justice":"CrimJust"}
+    ]
+},
+"Entries":[
+    {   
+    "PageTag":"Home",
+    "section":"About Me",
+    "subsection":"Affliation",
+    "Entry":"Associate Professor"
+},  
+{
+    "PageTag":"Home",
+    "section":"About Me",
+    "subsection":"Research interests",
+    "Entry":"Household finance; pensions; public policy; criminal justice system"
+} 
+,
+{
+    "PageTag":"Home",
+    "section":"About Me",
+    "subsection":"Curriculum vitae",
+    "Entry":"<a href ='http://saner.org.in/renuka-res11.pdf'> PDF </a>" 
+},
+{
+    "PageTag":"Research",
+    "Date":"November 2017",
+    "section":" Financial Regulation, Consumer protection",
+    "subsection":"",
+    "Entry":"Regulating consumer finance: Do disclosures matter? The case of life insurance (with Monika Halan), NIPFP Working paper 212, November 2017. <a href='http://macrofinance.nipfp.org.in/releases/Hala
+]
+}
