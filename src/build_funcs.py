@@ -12,13 +12,13 @@ def build_website(data):
     insert_replace(home,Author_image,'"fakelink"')
     copy_between(home,'<!-- Page list start-->','<!-- Page list end-->',len(names)-1) 
     for x in names:
-        page_link = "template/"+x.values()[0]+".html"
+        page_link = "template/"+list(x.values())[0]+".html"
         os.system("cp template/left-sidebar.html "+page_link)
         insert_replace(home,page_link[9:],'"sameplepage.html"')
-        insert_replace(home,x.keys()[0],'"samplepage"')
-        insert_replace(page_link,x.keys()[0],'"sampletitle"')
-        insert_replace(page_link,x.keys()[0],'"nameofauthor"')
-        insert_elements(page_link,ordering(x.values()[0],data),'<!-- Content Generator -->')
+        insert_replace(home,list(x.keys())[0],'"samplepage"')
+        insert_replace(page_link,list(x.keys())[0],'"sampletitle"')
+        insert_replace(page_link,list(x.keys())[0],'"nameofauthor"')
+        insert_elements(page_link,ordering(list(x.values())[0],data),'<!-- Content Generator -->')
         insert_replace(page_link,Author_image,'"fakelink"')
 
     insert_replace(home,data["settings"]["Name"],'"nameofauthor"')
@@ -28,7 +28,7 @@ def build_website(data):
     if data["settings"]["Support us"]=="YES":
         insert_file(home,"template/ad.html","<!--Footer -->")
     for x in names:
-        activator(x.values()[0],data) #REACTIVE TITLE BAR 
+        activator(list(x.values())[0],data) #REACTIVE TITLE BAR 
 
 
 
