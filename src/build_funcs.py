@@ -5,10 +5,10 @@ from pages import *
 import json
 
 def build_website(data):
-    os.system("cp -r assets/themes/"+ data["settings"]["Theme"]+" template")
-    names = data["settings"]["Pages"]
+    os.system("cp -r assets/themes/"+ data["settings"]["theme"]+" template")
+    names = data["settings"]["pages"]
     home = "template/index.html"
-    Author_image='"'+data["settings"]["Image"] +'"'
+    Author_image='"'+data["settings"]["image"] +'"'
     insert_replace(home,Author_image,'"fakelink"')
     copy_between(home,'<!-- Page list start-->','<!-- Page list end-->',len(names)-1) 
     for x in names:
@@ -21,11 +21,11 @@ def build_website(data):
         insert_elements(page_link,ordering(list(x.values())[0],data),'<!-- Content Generator -->')
         insert_replace(page_link,Author_image,'"fakelink"')
 
-    insert_replace(home,data["settings"]["Name"],'"nameofauthor"')
+    insert_replace(home,data["settings"]["name"],'"nameofauthor"')
     Author_details = ordering("Home",data)
     insert_elements(home,Author_details,'<!--About me -->')
-    insert_replace(home,data["settings"]["Email"],'"example@gmail.com"')
-    if data["settings"]["Support us"]=="YES":
+    insert_replace(home,data["settings"]["email"],'"example@gmail.com"')
+    if data["settings"]["support_us"]=="YES":
         insert_file(home,"template/ad.html","<!--Footer -->")
     for x in names:
         activator(list(x.values())[0],data) #REACTIVE TITLE BAR 

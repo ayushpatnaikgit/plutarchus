@@ -1,111 +1,105 @@
 {"settings": {
-    "Theme":"Theme2",
-    "Support us":"YES",
-    "Name":"Renuka Sane",
-    "Image":"http://saner.org.in/renuka1.jpg",
-    "Sort":"Descending Dates",
-    "Email":"renukas@gmail.com",
-    "Pages":[
-        {"Research":"Research"},
-        {"Pensions":"Pensions"},
-        {"Media":"Media"},
-        {"Criminal Justice":"CrimJust"}
-    ]
-},
-"Entries":[
+    "theme":"Theme2",
+    "support_us":"YES",
+    "name":"Renuka Sane",
+    "image":"http://saner.org.in/renuka1.jpg",
+    "sort":"descending",
+    "email":"renukas@gmail.com",
+    "pages":["Research","Pensions","Media","Criminal Justice"]
+}, 
+"entries":[
     {   
-    "PageTag":"Home",
+    "page":"Home",
     "section":"About Me",
     "subsection":"Affliation",
-    "Entry":"Associate Professor"
+    "entry":"Associate Professor"
 },  
 {
-    "PageTag":"Home",
+    "page":"Home",
     "section":"About Me",
     "subsection":"Research interests",
-    "Entry":"Household finance; pensions; public policy; criminal justice system"
+    "entry":"Household finance; pensions; public policy; criminal justice system"
 } 
 ,
 {
-    "PageTag":"Home",
+    "page":"Home",
     "section":"About Me",
     "subsection":"Curriculum vitae",
-    "Entry":"<a href ='http://saner.org.in/renuka-res11.pdf'> PDF </a>" 
+    "entry":"<a href ='http://saner.org.in/renuka-res11.pdf'> PDF </a>" 
 },
 {
-    "PageTag":"Research",
-    "Date":"November 2017",
+    "page":"Research",
+    "date":"November 2017",
     "section":" Financial Regulation, Consumer protection",
     "subsection":"",
-    "Entry":"Regulating consumer finance: Do disclosures matter? The case of life insurance (with Monika Halan), NIPFP Working paper 212, November 2017. <a href='http://macrofinance.nipfp.org.in/releases/HalanSane2017_RCF.html'>[link]</a>" 
+    "entry":"Regulating consumer finance: Do disclosures matter? The case of life insurance (with Monika Halan), NIPFP Working paper 212, November 2017. <a href='http://macrofinance.nipfp.org.in/releases/HalanSane2017_RCF.html'>[link]</a>" 
 },
 
 {
-    "PageTag":"Research",
-    "Date": "August 2017",
+    "page":"Research",
+    "date": "August 2017",
     "section":" Financial Regulation, Consumer protection",
     "subsection":"",
-    "Entry":"Misled and Mis-sold: Financial Misbehaviour in Retail Banks? (with Monika Halan), <i>Journal of Comparative Economics</i>, 45(3), August 2017 <a href='https://doi.org/10.1016/j.jce.2017.06.001'>[link]</a>" 
+    "entry":"Misled and Mis-sold: Financial Misbehaviour in Retail Banks? (with Monika Halan), <i>Journal of Comparative Economics</i>, 45(3), August 2017 <a href='https://doi.org/10.1016/j.jce.2017.06.001'>[link]</a>" 
 } 
 ,
 {
-    "PageTag":"Pensions",
-    "Date":"January 2018",
+    "page":"Pensions",
+    "date":"January 2018",
     "section":" Financial Regulation, Consumer protection",
     "subsection":"",
-    "Entry":"Simulating Pension Income Scenarios with penCalc (with William Price), World Bank Policy Research Working Paper, January 2018. <a href='http://macrofinance.nipfp.org.in/releases/SanePrice_SPIS.html'>[link]</a>" 
+    "entry":"Simulating Pension Income Scenarios with penCalc (with William Price), World Bank Policy Research Working Paper, January 2018. <a href='http://macrofinance.nipfp.org.in/releases/SanePrice_SPIS.html'>[link]</a>" 
 } 
 ,
 
 {
-    "PageTag":"Policy",
-    "Date":"2015",
+    "page":"Policy",
+    "date":"2015",
     "section":" Policy engagement",
     "subsection":"",
-    "Entry":"Part of the research team (focused on the insolvency of individuals) for the <a href='http://ifrogs.org/POLICY/blrc.html'><b>Bankruptcy Legislative Reforms Committee (BLRC)</b></a>, set up by the Ministry of  Finance (2015)" 
+    "entry":"Part of the research team (focused on the insolvency of individuals) for the <a href='http://ifrogs.org/POLICY/blrc.html'><b>Bankruptcy Legislative Reforms Committee (BLRC)</b></a>, set up by the Ministry of  Finance (2015)" 
 },
 {
-    "PageTag":"Media",
-    "Date":"05 May 2017",
+    "page":"Media",
+    "date":"05 May 2017",
     "section":"",
     "subsection":" 2017",
-    "Entry":"<a href='https://ajayshahblog.blogspot.in/2017/05/grievance-redress-and-enforcement.html'>Grievance redress and enforcement problems in the Aadhaar legal framework</a> (with Vrinda Bhandari), Ajay Shah's blog, 05 May, 2017." 
+    "entry":"<a href='https://ajayshahblog.blogspot.in/2017/05/grievance-redress-and-enforcement.html'>Grievance redress and enforcement problems in the Aadhaar legal framework</a> (with Vrinda Bhandari), Ajay Shah's blog, 05 May, 2017." 
 },
 {
-    "PageTag":"Media",
-    "Date":"11 April 2017",
+    "page":"Media",
+    "date":"11 April 2017",
     "section":"",
     "subsection":" 2017",
-    "Entry":"<a href='http://www.livemint.com/Opinion/DR8kPY8VKUDyMlkR2OHUfM/Budgeting-for-the-police.html'>Budgeting for the police</a> (with Neha Sinha), Mint, 11 April, 2017." 
+    "entry":"<a href='http://www.livemint.com/Opinion/DR8kPY8VKUDyMlkR2OHUfM/Budgeting-for-the-police.html'>Budgeting for the police</a> (with Neha Sinha), Mint, 11 April, 2017." 
 } ,
 
 {
-    "PageTag":"Media",
-    "Date":"13 December 2016",
+    "page":"Media",
+    "date":"13 December 2016",
     "section":"",
     "subsection":" 2016",
-    "Entry":"<a href='http://www.livemint.com/Opinion/zxXvWsP1BzXdudc7xyApzM/Revamping-the-Income-Tax-Appellate-Tribunal.html'>Revamping the Income Tax Appellate Tribunal</a> (with Pratik Datta and Surya Prakash B S), liveMint, 13 December, 2016." 
+    "entry":"<a href='http://www.livemint.com/Opinion/zxXvWsP1BzXdudc7xyApzM/Revamping-the-Income-Tax-Appellate-Tribunal.html'>Revamping the Income Tax Appellate Tribunal</a> (with Pratik Datta and Surya Prakash B S), liveMint, 13 December, 2016." 
 }, 
 {
-    "PageTag":"CrimJust",
+    "page":"CrimJust",
     "section":"The Indian criminal justice system",
     "subsection":"",
-    "Entry":"The criminal justice system produces conditions of safety of life and property. These are preconditions for the politics and economics of a liberal democracy. This motivates analytical and policy analysis of the Indian criminal justice system. What are the inter-relationships between safety and economics, and between safety and democratic politics? How safe are individuals in India? What coping mechanisms are being used, and what is the opportunity cost of these coping mechanisms? What is the present resourcing of the criminal justice system, and how are resources being translated into outcomes by courts, police, prisons, CBI under present laws? How can the levers of policy be applied to do things better? How should we think about criminal justice system reform? " 
+    "entry":"The criminal justice system produces conditions of safety of life and property. These are preconditions for the politics and economics of a liberal democracy. This motivates analytical and policy analysis of the Indian criminal justice system. What are the inter-relationships between safety and economics, and between safety and democratic politics? How safe are individuals in India? What coping mechanisms are being used, and what is the opportunity cost of these coping mechanisms? What is the present resourcing of the criminal justice system, and how are resources being translated into outcomes by courts, police, prisons, CBI under present laws? How can the levers of policy be applied to do things better? How should we think about criminal justice system reform? " 
 }, 
 {
-    "PageTag":"CrimJust",
-    "Date":"10 May 2015",
+    "page":"CrimJust",
+    "date":"10 May 2015",
     "section":"The Indian criminal justice system",
     "subsection":"Broad Work",
-    "Entry":"<a href='http://ajayshahblog.blogspot.in/2012/05/faulty-tradeoffs-in-security.html'>Faulty tradeoffs in security</a>, by Ajay Shah, Ajay Shah's blog, 10 May 2015." 
+    "entry":"<a href='http://ajayshahblog.blogspot.in/2012/05/faulty-tradeoffs-in-security.html'>Faulty tradeoffs in security</a>, by Ajay Shah, Ajay Shah's blog, 10 May 2015." 
 },
 {
-    "PageTag":"Research",
-    "Date":"December 2017",
+    "page":"Research",
+    "date":"December 2017",
     "section":" Financial Regulation, Consumer protection",
     "subsection":"",
-    "Entry":"I know nothing" 
+    "entry":"I know nothing" 
 }
-
 ]
 }

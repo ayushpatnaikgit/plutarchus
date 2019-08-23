@@ -2,8 +2,8 @@ import datetime
 
 def pageDict(page,data):
     data2 = []
-    for x in data["Entries"]:
-        if x["PageTag"] == page:
+    for x in data["entries"]:
+        if x["page"] == page:
             data2.append(x)
     return data2
 
@@ -34,9 +34,9 @@ def ordering(page,data): #This is the most important part of the code. Iterating
                         entries = []
                         for z in pagedictionary: 
                             if z["section"] == x["section"] and z["subsection"] == y["subsection"]:
-                                entries.append(entry(z["Entry"])) 
+                                entries.append(entry(z["entry"])) 
                         try: #try sorting if dates are there
-                            entries = sorted(entries, key = lambda i:  datetime.datetime.strptime(i['Date'], '%d/%m/%Y'))[::-1]
+                            entries = sorted(entries, key = lambda i:  datetime.datetime.strptime(i['date'], '%d/%m/%Y'))[::-1]
                         except: 
                             pass
                         html_page = html_page + list(map(entry,entries))

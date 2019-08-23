@@ -41,10 +41,3 @@ def transform_view():
         as_attachment=True,
         attachment_filename='website.zip'
     )
-
-
-       # base_path = pathlib.Path('./website/')
-    # data = io.BytesIO()
-    # with zipfile.ZipFile(data, mode='w') as z:
-    #     for f_name in base_path.iterdir():
-    #         z.write(f_name)
