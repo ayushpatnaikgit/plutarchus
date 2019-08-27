@@ -28,7 +28,7 @@ def build_website(data):
         insert_replace(home,x,'"samplepage"')
         # page title, name of the authod and the author's image are inserted in the page. 
         insert_replace(page_link,x,'"sampletitle"')
-        insert_replace(page_link,x,'"nameofauthor"')
+        insert_replace(page_link,basics["name"],'"nameofauthor"')
         insert_replace(page_link,Author_image,'"author_image"')
         # ordering() generates the content in the page by reading the entries. This is where all the content is put in the HTML file of the page. 
         insert_elements(page_link,ordering(x,data),'<!-- Content Generator -->')       

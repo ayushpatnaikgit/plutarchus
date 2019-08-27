@@ -30,6 +30,20 @@ a {
     color: #2c98f0;
     outline: none;
     text-decoration: none !important; }
+.avatar {
+      /* vertical-align: middle; */
+      width: 220px;
+      height: 220px;
+      margin: 0 auto;
+      margin-bottom: 30px;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      -ms-border-radius: 50%;
+      border-radius: 50%; 
+      object-fit: cover;
+      background-position: top center;
+    }
+
 
 p {
   margin-bottom: 1.5em; }
@@ -78,7 +92,7 @@ figure {
   float: left;
   width: 350px;
   position: fixed;
-  left: 20px;
+  left: 15px;
   overflow-y: scroll;
   z-index: 1001;
   background: #141414;
@@ -95,8 +109,8 @@ figure {
       transform: translateX(-300px);
       padding-top: 4em; } }
   #colorlib-aside .author-img {
-    width: 250px;
-    height: 250px;
+    width: 220px;
+    height: 220px;
     margin: 0 auto;
     margin-bottom: 30px;
     -webkit-border-radius: 50%;
@@ -121,6 +135,7 @@ figure {
       color: rgb(226, 226, 226);
       padding-right: .3em; }
   #colorlib-aside #colorlib-main-menu {
+    margin: 0px;
     display: block;
     width: 100%; }
     #colorlib-aside #colorlib-main-menu .collapse {
@@ -143,8 +158,9 @@ figure {
         #colorlib-aside #colorlib-main-menu ul li a {
           color: rgba(255, 255, 255, 0.7);
           text-decoration: none;
+          font-size: 18px;
           position: relative;
-          padding: 10px 0;
+          padding: 20px 0;
           font-family: "Quicksand", Arial, sans-serif;
           -webkit-transition: 0.3s;
           -o-transition: 0.3s;
@@ -155,6 +171,7 @@ figure {
             height: 1px;
             bottom: 7px;
             left: 0;
+            font-size: 18px;
             right: 0;
             background-color: #2c98f0;
             visibility: hidden;
@@ -366,6 +383,7 @@ body.offcanvas {
     transform: translateX(300px); }
 
 .colorlib-narrow-content {
+  font-size: 18px;
   padding: 0 2.5em; }
   @media screen and (max-width: 768px) {
     .colorlib-narrow-content {
