@@ -1,13 +1,12 @@
-from html_file import *
-import os
+import html_file
 
 def build_website(data):
-    os.system("cp -r assets/themes/"+ data["basics"]["theme"]+" template")
+    
     basics = data["basics"]
     pages= ['Home']+basics["pages"]
     theme = basics["theme"]
     
-    home = Home(theme)
+    home = html_file.Home()
 
     home.make_navigator(pages)
     home.author_image(basics["image"]) 
@@ -18,7 +17,7 @@ def build_website(data):
     home.write_html()
     for x in pages:
         
-        page = SidePage(theme,x)
+        page = html_file.SidePage(x)
 
         page.make_navigator(pages)
         page.author_name(basics["name"])

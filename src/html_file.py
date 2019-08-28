@@ -17,7 +17,7 @@ class File:
     def replace(self,url,label):
         #Replaces a label with another (generally a URL). The label must be in quotes.
         self.content_join = ''.join([line + "\n" for line in self.content])
-        self.content_join = line.replace(label,url,1)
+        self.content_join.replace(label,url,1)
         self.content = self.content_join.splitlines()
 
     def copy_between(self,top,bottom,n):
@@ -35,40 +35,40 @@ class File:
 
 
 class html_file(File):
-    def __init__(self):
-        file_plus_plus.__init__(self)
+    def __init__(self,name,link):
+        File.__init__(self,name,link)
 
     def make_navigator(self,pages):
-        for page in page_names:
+        for page in pages:
             page_link = page.replace(' ','_') + '.html'
-            sample_item_on_navbar = get_elements('<!-- Page list start-->','<!-- Page list end-->') 
+            sample_item_on_navbar = self.get_elements('<!-- Page list start-->','<!-- Page list end-->')[0]
             if page ==  self.name: 
                 sample_item_on_navbar.replace("active",'"notactive"')
             item_on_navbar= sample_item_on_navbar.replace(page_link,'"sameplepage.html"') #needs to be looked into
             item_on_navbar.replace(page,'"samplepage"')
-            self.insert(item_on_navbar)
+            self.insert(item_on_navbar,'<!-- Page list start-->')
 
-    def author_image(self,image)
+    def author_image(self,image):
         self.replace(image,'author_image')
 
     def author_name(self,name):
-        self.replace('"nameofauthor"')
+        self.replace(name,'"nameofauthor"')
 
     def add_content(self,data,label):
-        self.insert(ordering(self.name,data))
+        self.insert(ordering(self.name,data),label)
 
     def write_html(self):
         render(self,'template/'+self.tag)
 
 class Home(html_file):
-    def __init__(self,theme):
+    def __init__(self):
         self.link = 'template/index.html'
         html_file.__init__(self,'Home',self.link)
     def email(self,email): 
         self.replace(email,'"example@gmail.com"')
 
 class SidePage(html_file):
-    def __init__(self,theme,name):
+    def __init__(self,name):
         self.link = 'template/left_sidebar.html'
         html_file.__init__(self,name,self.link)
         self.replace(self.name,'"sampletitle"')

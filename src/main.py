@@ -1,10 +1,7 @@
 import os
-from insert import *
-from activate import *
-from pages import *
 import json
 import sys
-from build_funcs import *
+from new_build import *
 file = sys.argv[1]
 if '.hjson' in file:
     os.system("rm -rf temp_json_from_hjson.json")
@@ -17,4 +14,5 @@ else:
         data_file = json.load(json_file)
 #creating files using headinds
 os.system("rm -rf template")
+os.system("cp -r assets/themes/"+ data_file["basics"]["theme"]+" template")
 build_website(data_file)
