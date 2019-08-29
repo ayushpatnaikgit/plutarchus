@@ -1,7 +1,7 @@
 """
 These are general functions, not limited to the scope of this program. These are general file manipulation functions. 
 """
-from pages import ordering
+from plutarchus.pages import ordering
 
 class File:
     def __init__(self,name,file_link):
@@ -67,7 +67,7 @@ class html_file(File):
 
 class Home(html_file):
     def __init__(self):
-        self.link = 'template/index.html'
+        self.link = 'website/index.html'
         html_file.__init__(self,'Home',self.link)
         self.tag = 'index'
 
@@ -75,16 +75,16 @@ class Home(html_file):
         self.label_replace('"example@gmail.com"',email)
 
     def write_html(self):
-        self.render('template/index.html') #unix doesn't like spaces 
+        self.render('website/index.html') #unix doesn't like spaces 
 
 class SidePage(html_file):
     def __init__(self,name):
-        self.link = 'template/left-sidebar.html'
+        self.link = 'website/left-sidebar.html'
         html_file.__init__(self,name,self.link)
         self.label_replace('"sampletitle"',self.name)
         
     
     def write_html(self):
-        self.render('template/'+self.name.replace(' ','_')+".html") #unix doesn't like spaces 
+        self.render('website/'+self.name.replace(' ','_')+".html") #unix doesn't like spaces 
 
 

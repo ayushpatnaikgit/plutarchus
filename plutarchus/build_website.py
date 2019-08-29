@@ -1,10 +1,9 @@
-import html_file
-
+from plutarchus.html_file import Home,SidePage
 def build_website(data):
     
     basics = data["basics"]
     pages= ['Home']+basics["pages"]
-    home = html_file.Home()
+    home = Home()
 
     home.make_navigator(pages)
     home.author_image(basics["image"]) 
@@ -15,7 +14,7 @@ def build_website(data):
     home.write_html()
     for x in pages:
         
-        page = html_file.SidePage(x)
+        page = SidePage(x)
 
         page.make_navigator(pages)
         page.author_name(basics["name"])

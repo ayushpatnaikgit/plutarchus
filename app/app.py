@@ -2,16 +2,15 @@ from flask import Flask, make_response, request , jsonify, render_template
 import os, json 
 import flask as fl
 import sys, zipfile, io , pathlib
-
-from build_funcs import build_website
-
+sys.path.append('../')
+from plutarchus.build_website import *
 app = Flask(__name__)
 
 @app.route("/")
 def home():
     return render_template("index.html")
 
-@app.route('/transform', methods=['GET',"POST"])
+@app.route('/', methods=['GET',"POST"])
 def transform_view():
     request_file = request.files['data_file']
 
@@ -23,7 +22,7 @@ def transform_view():
     with open('temp.json') as json_file:  
         data_file= json.load(json_file)
     os.system('rm temp.json')
-
+    os.system("cp -r assets/themes/"+ data_file["basics"]["theme"]+" website")
     build_website(data_file)
 
     os.system('zip -r website.zip website')
