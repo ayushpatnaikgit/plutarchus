@@ -6,19 +6,22 @@ from pages import ordering
 class File:
     def __init__(self,name,file_link):
         self.name = name
-        self.tag = name.replace(' ','_')#unix doesn't like spaces 
+        self.tag = name.replace(' ','_')
         with open(file_link,'r') as fo: 
             self.content = fo.read().splitlines()
  
     def insert(self,elements,label): #inserts elements in a file after a label
-        #Take a list of strings and puts it below a label in a file.  
-        self.content.insert(self.content.index(label),elements)
+        #Take a list of strings and puts it below a label in a file. 
+        if type(elements)!=list: 
+            elements = [elements]
+        index = self.content.index(label)
+        self.content = self.content[:index+1] + elements +  self.content[index+1:]
 
-    def replace(self,url,label):
+    def label_replace(self,old,new):
         #Replaces a label with another (generally a URL). The label must be in quotes.
-        self.content_join = ''.join([line + "\n" for line in self.content])
-        self.content_join.replace(label,url,1)
-        self.content = self.content_join.splitlines()
+        content_join = ''.join([line + "\n" for line in self.content])
+        content_join = content_join.replace(old,new,1)
+        self.content = content_join.splitlines()
 
     def copy_between(self,top,bottom,n):
         #Looks between 2 labels of a file and copies the content n times below the top label.   
@@ -29,9 +32,8 @@ class File:
         return self.content[self.content.index(top)+1:self.content.index(bottom)]
 
     def render(self,file_link):
-        self.new_content = [line + "\n" for line in self.content]
         with open(file_link,'w+') as fo: 
-            self.content = fo.writelines(self.new_content)
+            fo.writelines([line + "\n" for line in self.content])
 
 
 class html_file(File):
@@ -39,42 +41,50 @@ class html_file(File):
         File.__init__(self,name,link)
 
     def make_navigator(self,pages):
+    
+        self.insert([self.get_elements('<!-- Page list start-->','<!-- Page list end-->')[0]] * (len(pages)-1),'<!-- Page list start-->')
+        iterator = self.content.index('<!-- Page list start-->') + 1
         for page in pages:
-            page_link = page.replace(' ','_') + '.html'
-            sample_item_on_navbar = self.get_elements('<!-- Page list start-->','<!-- Page list end-->')[0]
-            if page ==  self.name: 
-                sample_item_on_navbar.replace("active",'"notactive"')
-            item_on_navbar= sample_item_on_navbar.replace(page_link,'"sameplepage.html"') #needs to be looked into
-            item_on_navbar.replace(page,'"samplepage"')
-            self.insert(item_on_navbar,'<!-- Page list start-->')
+            if page ==  self.name:
+                self.content[iterator] = self.content[iterator].replace("notactive","active",1)
+            self.content[iterator] = self.content[iterator].replace('"samplepage"',page,1)
+            if page == "Home":
+                self.content[iterator]= self.content[iterator].replace('"sameplepage.html"','index.html',1)
+            else:
+                self.content[iterator]= self.content[iterator].replace('"sameplepage.html"',page.replace(' ','_')+'.html',1) #needs to be looked into
+            iterator += 1
 
     def author_image(self,image):
-        self.replace(image,'author_image')
+        self.label_replace('author_image',image)
 
     def author_name(self,name):
-        self.replace(name,'"nameofauthor"')
+        self.label_replace('"nameofauthor"',name)
 
-    def add_content(self,data,label):
+    def select_and_add_content(self,data,label="<!--Content-->"):
         self.insert(ordering(self.name,data),label)
 
-    def write_html(self):
-        render(self,'template/'+self.tag)
+
 
 class Home(html_file):
     def __init__(self):
         self.link = 'template/index.html'
         html_file.__init__(self,'Home',self.link)
+        self.tag = 'index'
+
     def email(self,email): 
-        self.replace(email,'"example@gmail.com"')
+        self.label_replace('"example@gmail.com"',email)
+
+    def write_html(self):
+        self.render('template/index.html') #unix doesn't like spaces 
 
 class SidePage(html_file):
     def __init__(self,name):
-        self.link = 'template/left_sidebar.html'
+        self.link = 'template/left-sidebar.html'
         html_file.__init__(self,name,self.link)
-        self.replace(self.name,'"sampletitle"')
+        self.label_replace('"sampletitle"',self.name)
+        
     
-
-
-
+    def write_html(self):
+        self.render('template/'+self.name.replace(' ','_')+".html") #unix doesn't like spaces 
 
 
