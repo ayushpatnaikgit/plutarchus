@@ -1,6 +1,20 @@
 \documentclass[12pt]{article}
 \newcommand{\blank}[1]{\hspace*{#1}\linebreak[0]}
 \usepackage{xcolor}  
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+\usepackage{listings}
+\lstset{
+basicstyle=\small\ttfamily,
+columns=flexible,
+breaklines=true
+}
+
 \pagecolor[rgb]{0, 0.082, 0.180}  
 \color[rgb]{0.921, 0.623, 0}  
 \begin{document}
@@ -26,27 +40,102 @@
     \newpage
     \section{Introduction}
 
-    Plutarchus is an open source personal website building tool. It takes a JSON file and generates a website using the data in the JSON file. The JSON file is the dataset of the user's work. The websites that Plutarchus generates are static HTMLs, however Javascript and CSS are integrated to make then at par with modern web designs. Plutarchus v0.1 is designed to build resume websites.
-    The examples and test cases are websites of academics and hence same are the target audience for v 0.1.      
+    Plutarchus is an open source personal website building tool. It takes a JSON file and generates a website using the data in the JSON file. The JSON file is the dataset of the user's work. The websites that Plutarchus generates are static HTMLs, however Javascript and CSS are integrated to make then at par with modern web designs. Plutarchus v0.1 is designed to build resume websites. The examples and test cases are websites of academics and hence same are the target audience for v 0.1.
+
  
     \subsection{Why Plutarchus}
 
-    There are a number of free website building tools available online. The key idea of the Plutarchus that separate it from other is that it generates a website from just a JSON file. Firstly, the user doesn't have to do any web design. Second, the user can maintain a JSON file of his work by simply adding entries to as new work is produced. The JSON file can be read as a dataset in various programming language for data analytics, etc.  
-    
+    There are a number of free website building tools available online. The key idea of the Plutarchus that separates it from other is that it generates a website from just a JSON file. Firstly, the user doesn't have to do any web design. Second, the user can maintain a JSON file of his work by simply adding entries to as new work is produced. The JSON file can be read as a dataset in various programming language for data analytics, etc. 
+
+    The project that comes closest to Plutarchus is \href{http://jsonresume.org/}{JSON Resume}.
+    However, this project isn't aimed websites that are frequently updated.   
 
     \subsection{Examples}
+
+    The personal \href{http://latinplutarchus.com/saner}{website} of Renuka Sane is generated from her \href{http://latinplutarchus/saner_json}{JSON file}
+
+    The JSON file contains the a tag for theme, the same website is generated again, with different theme \href{http://latinplutarchus/saner_json}{here}. 'Theme1a' has been changed to 'Theme2a' in the \href{http://latinplutarchus/saner_json}{JSON file} used to generate the second website.  
+
+    A website can also be generated without a theme or with minimal theming. \href{http://latinplutarchus/saner_json}{This} is the same website without any theme. It doesn't contain any Javascripts and CSS files. This is called 'Theme 0' in the package.  
+ 
+
     \section{Getting Started}
-    \subsection{JSON/HJSON File}
+
+    There are broadly 2 steps. 
+    \begin{enumerate}
+        \item Write a JSON file of your work
+        \item Build website using it by using the web app or the Command Line Interface. 
+    \end{enumerate}
+
     \subsection{Writing a JSON File}
+
+    \href{https://developers.squarespace.com/what-is-json}{JSON}, or JavaScript Object Notation, is a minimal, readable format for structuring data. It is used primarily to transmit data between a server and web application, as an alternative to XML.
+
+    Essentially, you follow some rules to write a text file and save the file using 'json' as the extension. There rules are fairly simple and can be understood by looking at an \href{http://latinplutarchus/saner_json}{example}. It's easiest to do it by editing the \href{http://latinplutarchus/saner_json}{minimal JSON file} provided in the package.
+    There is also a JSON editor provided in the Commandline Interface of plutarchus and there is a webapp under development for the same (will release in v0.2).  
+
+    There are two sections that you need to be there in the JSON file, 'basics' and 'entries'. There are 7 items to be put in basic: theme, support, name, image, sort, email and pages. The theme tag tells the generator which theme to use. Example: 'theme':'Theme1a'. If you say yes to support, there will be link to plutarchus on your page. The pages tag will the generator the names of the pages and the order. If the value given to sort is decending, it will sort the entries in decending order or dates. The rest are probably self explanatory. 
+
+    You add information about of your works in the entries section of the JSON file. It's list of elements each containing five items: page, date,section, subsection and entry.  You may not put date, section and subsection, but page and entry are required. The page value tells the generator which page to put the entry in. The entry where text regarding the work is put. HTML tags can be put in the field for formatting, adding hyperlinks, images, etc. All hyperlinks must by put in single quotes. 
+
+    example of an entry: 
+    \begin{verbatim}
+
+    {
+    "page":"Criminal Justice",
+    "date":"10 May 2015",
+    "section":"The Indian criminal justice system",
+    "subsection":"Broad Work",
+    "entry":"<a href='http://ajayshahblog.blogspot.in/'>
+    Faulty tradeoffs in security</a>, by <h2>Ajay Shah</h2>,
+    Ajay Shah's blog" }
+    
+    \end{verbatim}
+
+    Add such elements to the entries section of your JSON file and separate them with commas. 
+
+    \subsubsection{HJSON File}
+
+    A \href{https://hjson.org/}{HJSON} file is essentially JSON file in which you can add comments. There are some additional features like 'do what I mean' so if you make minor mistakes in formatting, the program (plutarchus) reading the HSJON might be able to correct them.
+    
+    It's recommended to use a HJSON file. The minimal HJSON file provided in the package has comments that can guide you. 
+
     \subsubsection{Converting from HJSON to JSON}
-    \subsection{Examples}
-    \subsubsection{Getting Help}
+    You may want to convert your HJSON file to a JSON file. If your HJSON file is called work.hjson, you can convert it by running. 
+    \begin{verbatim}
+    pip install hjson
+    hjson -j work.hjson > work.json
+    \end{verbatim}
+    The first line install the hjson converter and the second line does the conversion.
+    It removes all the comments and also make corrections to all the mistakes in the formatting if any.
+
     \subsection{Website Generation}
-    \subsubsection{Examples}
+    
+    You can either use the Commandline Interface or the webapp to 
+    generate the website from the JSON file. The webapp will be updated less frequently as compared to the Commandline Interface.
+
     \subsubsection{Command Line Interface}
+
+    Download the source code and run generate.py
+    \begin{verbatim}
+        $ git clone https://github.com/ayushpatnaikgit/plutarchus.git$
+        $ cd plutarchus
+        $ python generate.py ~/Documents/work.json 
+    \end{verbatim}
+    Change the location and name of your JSON file to point the program at your JSON file. 
+    If you are using a HSJON file, you need add hjson package to python. 
+
+    \begin{verbatim}
+        $ pip install hjson
+        $ python generate.py ~/Documents/work.hjson 
+    \end{verbatim}
+
+    This will generate a folder call website. This if your website. 
+    
+
     \subsubsection{Graphics User Interface}
-    \subsection{Getting Help}
     \section{Themes}
     \subsection{Themes in V0.1}
     \subsection{Theme0}
+    \section{Getting Help}
 \end{document}
