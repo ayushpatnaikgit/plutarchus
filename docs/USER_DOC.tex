@@ -48,15 +48,15 @@ breaklines=true
     There are a number of free website building tools available online. The key idea of the Plutarchus that separates it from other is that it generates a website from just a JSON file. Firstly, the user doesn't have to do any web design. Second, the user can maintain a JSON file of his work by simply adding entries to as new work is produced. The JSON file can be read as a dataset in various programming language for data analytics, etc. 
 
     The project that comes closest to Plutarchus is \href{http://jsonresume.org/}{JSON Resume}.
-    However, this project isn't aimed websites that are frequently updated.   
+    However, \href{http://jsonresume.org/}{JSON Resume} isn't aimed websites that are frequently updated.   
 
     \subsection{Examples}
 
     The personal \href{http://latinplutarchus.com/saner}{website} of Renuka Sane is generated from her \href{http://latinplutarchus/saner_json}{JSON file}
 
-    The JSON file contains the a tag for theme, the same website is generated again, with different theme \href{http://latinplutarchus/saner_json}{here}. 'Theme1a' has been changed to 'Theme2a' in the \href{http://latinplutarchus/saner_json}{JSON file} used to generate the second website.  
+    The JSON file contains the a tag for theme, the same website is generated again, with different theme \href{http://latinplutarchus/saner_json}{here}.  `Theme1a' has been changed to `Theme2a' in the \href{http://latinplutarchus/saner_json}{JSON file} used to generate the second website.  
 
-    A website can also be generated without a theme or with minimal theming. \href{http://latinplutarchus/saner_json}{This} is the same website without any theme. It doesn't contain any Javascripts and CSS files. This is called 'Theme 0' in the package.  
+    A website can also be generated without a theme or with minimal theming. \href{http://latinplutarchus/saner_json}{This} is the same website without any theme. It doesn't contain any Javascripts and CSS files. This is called `Theme 0' in the package.  
  
 
     \section{Getting Started}
@@ -71,12 +71,31 @@ breaklines=true
 
     \href{https://developers.squarespace.com/what-is-json}{JSON}, or JavaScript Object Notation, is a minimal, readable format for structuring data. It is used primarily to transmit data between a server and web application, as an alternative to XML.
 
-    Essentially, you follow some rules to write a text file and save the file using 'json' as the extension. There rules are fairly simple and can be understood by looking at an \href{http://latinplutarchus/saner_json}{example}. It's easiest to do it by editing the \href{http://latinplutarchus/saner_json}{minimal JSON file} provided in the package.
+    Essentially, you follow some rules to write a text file and save the file using `json' as the extension. There rules are fairly simple and can be understood by looking at an \href{http://latinplutarchus/saner_json}{example}. It's easiest to do it by editing the \href{http://latinplutarchus/saner_json}{minimal JSON file} provided in the package.
     There is also a JSON editor provided in the Commandline Interface of plutarchus and there is a webapp under development for the same (will release in v0.2).  
 
-    There are two sections that you need to be there in the JSON file, 'basics' and 'entries'. There are 7 items to be put in basic: theme, support, name, image, sort, email and pages. The theme tag tells the generator which theme to use. Example: 'theme':'Theme1a'. If you say yes to support, there will be link to plutarchus on your page. The pages tag will the generator the names of the pages and the order. If the value given to sort is decending, it will sort the entries in decending order or dates. The rest are probably self explanatory. 
+    There are two sections that you need to be there in the JSON file, `basics' and `entries'.
+    
+    \subsubsection{Basics}
+    
+    There are 7 items to be put in basic: theme, support, name, image, sort, email and pages. The theme tag tells the generator which theme to use. Example: ``theme'':``Theme1a'. If you give ``support'' value ``yes'', there will be link to plutarchus on your page. The ``pages'' tag will the generator the names of the pages and the order. If the value given to ``sort" is ``decending", it will sort the entries in decending order or dates. The rest are probably self explanatory. 
 
-    You add information about of your works in the entries section of the JSON file. It's list of elements each containing five items: page, date,section, subsection and entry.  You may not put date, section and subsection, but page and entry are required. The page value tells the generator which page to put the entry in. The entry where text regarding the work is put. HTML tags can be put in the field for formatting, adding hyperlinks, images, etc. All hyperlinks must by put in single quotes. 
+    An example of basics: 
+    \begin{verbatim}
+        "basics": {
+    "theme":"Theme1a",
+    "support":"YES",
+    "name":"Renuka Sane",
+    "image":"http://saner.org.in/renuka1.jpg",
+    "sort":"descending",
+    "email":"renukas@gmail.com",
+    "pages":["Research","Pensions","Media","Criminal Justice"]
+    }
+    \end{verbatim}
+
+    \subsubsection{Entries}
+
+    You add information about of your works in the entries section of the JSON file. It's list of elements each containing five items: page, date,section, subsection and entry.  You may not put date, section and subsection, but page and entry are required. The page value tells the generator which page to put the entry in. The entry where text regarding the work is put. HTML tags can be put in the field for formatting, adding hyperlinks, images, etc. \textbf{All hyperlinks must by put in single quotes.} In fact, all quotes should be single quotes. This syntax can change in future version depending on feedback. 
 
     example of an entry: 
     \begin{verbatim}
@@ -96,7 +115,7 @@ breaklines=true
 
     \subsubsection{HJSON File}
 
-    A \href{https://hjson.org/}{HJSON} file is essentially JSON file in which you can add comments. There are some additional features like 'do what I mean' so if you make minor mistakes in formatting, the program (plutarchus) reading the HSJON might be able to correct them.
+    A \href{https://hjson.org/}{HJSON} file is essentially JSON file in which you can add comments. There are some additional features like `do what I mean' so if you make minor mistakes in formatting, the program (plutarchus) reading the HSJON might be able to correct them.
     
     It's recommended to use a HJSON file. The minimal HJSON file provided in the package has comments that can guide you. 
 
@@ -118,24 +137,43 @@ breaklines=true
 
     Download the source code and run generate.py
     \begin{verbatim}
-        $ git clone https://github.com/ayushpatnaikgit/plutarchus.git$
-        $ cd plutarchus
-        $ python generate.py ~/Documents/work.json 
+    $ git clone https://github.com/ayushpatnaikgit/plutarchus.git$
+    $ cd plutarchus
+    $ python generate.py ~/Documents/work.json 
     \end{verbatim}
     Change the location and name of your JSON file to point the program at your JSON file. 
     If you are using a HSJON file, you need add hjson package to python. 
 
     \begin{verbatim}
-        $ pip install hjson
-        $ python generate.py ~/Documents/work.hjson 
+    $ pip install hjson
+    $ python generate.py ~/Documents/work.hjson 
     \end{verbatim}
 
     This will generate a folder call website. This if your website. 
-    
 
+    Replace hjson with json if your file extension is json. 
+    
     \subsubsection{Graphics User Interface}
+
+    Go to the \href{http://latinplutarchus/saner_json}{web app} in your favorite browser. Click upload and upload your json or hjson file. 
+
     \section{Themes}
-    \subsection{Themes in V0.1}
+
+    In version 0.1, there are 2 themes that utilise JS and CSS, and there are 2 variants of each of theme two themes. The themes are located in the assets/themes folder and they can be selected by giving one of the following options in to the "theme" tag in basics: \href{http://latinplutarchus/saner_json}{Theme1a},\href{http://latinplutarchus/saner_json}{Theme1b},\href{http://latinplutarchus/saner_json}{Theme2a} and \href{http://latinplutarchus/saner_json}{Theme2b}
+
+
     \subsection{Theme0}
+
+    In addtion to the two themes and their 2 variants, there is a basic html option as well. If ``theme" in basics has value ``Theme0", a basic HTML without JS and CSS will be produced. 
+
+    \subsection{Making Themes}
+
+    The easiest way to make a theme is editing Theme0 and adding CSS and JS to it. However, Theme1 and Theme2 where make in a very different way. A free and opensource web template was downloaded and certain comments were added to make it complatible with Plutarchus. The comments are read by Plutarchus. More details regarding the method are in \href{http://latinplutarchus/saner_json}{developer docs}
+
     \section{Getting Help}
+
+    Due to availablility of the web app, there is no need to download the package and install the dependancies, hence all the queries will be regarding the JSON file. For version 0.1, the \href{http://latinplutarchus/saner_json}{forum} would be the best platform. The \href{http://latinplutarchus/saner_json}{mailing list} is also another option. In future versions more examples will be available. We request the users of this service to provide their JSON and HJSON files so other users are use them as reference. 
+
+    If you already has a website and you want to migrate, use the \href{http://latinplutarchus/saner_json}{LatinPlutarchus Migrating} service. Most websites can be migrated under USD 20. 
+
 \end{document}
