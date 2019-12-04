@@ -2,9 +2,12 @@ from flask import Flask, make_response, request , jsonify, render_template
 import os, json 
 import flask as fl
 import sys, zipfile, io , pathlib
-sys.path.append("..") # Adds higher directory to python modules path.
-# import plutarchus
-from plutarchus.build_website import build_website
+try:
+###Use a better way of importing modules
+    os.symlink('../plutarchus','app/plutarchus')
+except:
+    pass
+from plutarchus import build_website
 app = Flask(__name__)
 
 @app.route("/")
@@ -24,7 +27,7 @@ def transform_view():
         data_file= json.load(json_file)
     os.system('rm temp.json')
     os.system("cp -r assets/themes/"+ data_file["basics"]["theme"]+" website")
-    plutarchus.build_website(data_file)
+    build_website.build_website(data_file)
 
     os.system('zip -r website.zip website')
     os.system('rm -rf website')
@@ -43,4 +46,4 @@ def transform_view():
     )
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=80)
+    app.run(host="0.0.0.0", port=5000)
